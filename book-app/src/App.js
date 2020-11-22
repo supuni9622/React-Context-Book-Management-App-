@@ -1,10 +1,11 @@
-import Home from './components/Home'
+import NavBar from './components/NavBar'
+import BookList from './components/BookList'
 
 const App = () => {
   return (
     <div className="App">
-     Book App
-     <Home/>
+      <NavBar/>
+      <BookList/>
     </div>
   );
 }
