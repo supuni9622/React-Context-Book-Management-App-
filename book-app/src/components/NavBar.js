@@ -1,8 +1,18 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import {ThemeContext } from '../contexts/ThemeContext'
 
 const NavBar = () => {
+    
+    // Access values provided by the ThemeContext provider
+    const themeContext = useContext(ThemeContext)
+
+    // Object destructuring
+    const {isLightTheme, dark, light} = themeContext
+
+    const theme = isLightTheme ? light : dark
+   
     return (
-        <nav>
+        <nav style={{background: theme.ui, color: theme.syntax}}>
             <h1>Book Management App</h1>
             <ul>
                 <li>Home</li>
