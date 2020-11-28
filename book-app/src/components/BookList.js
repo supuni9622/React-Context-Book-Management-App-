@@ -7,7 +7,7 @@ import BookDetails from './BookDetails';
 const BookList = () => {
 
     const {isLightTheme, dark, light} = useContext(ThemeContext);
-    const {books, addBook, removeBook} = useContext(BookContext);
+    const {books} = useContext(BookContext);
 
     const theme = isLightTheme ? light : dark;
 
@@ -37,7 +37,7 @@ const BookList = () => {
                 <div className='book-list' style={{background: theme.bg, color: theme.syntax}}>
                     <ul>
                         {books.map((book)=> {
-                            return(<BookDetails book={book} style={{background: theme.ui}} key={book.id}/>)
+                            return(<BookDetails book={book} key={book.id}/>)
                         })}
                     </ul>
                 </div>
@@ -46,7 +46,7 @@ const BookList = () => {
                     No books to read at this time.
                 </div>
             }
-           <NewBookForm addBook={addBook}/>
+           <NewBookForm/>
        </>
     )
 }
