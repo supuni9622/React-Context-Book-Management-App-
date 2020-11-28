@@ -3,8 +3,7 @@ import { ThemeContext } from '../contexts/ThemeContext'
 
 const ThemeToggle = () => {
 
-    const themeContext = useContext(ThemeContext)
-    const {toggleTheme} = themeContext
+    const {toggleTheme} = useContext(ThemeContext)
 
     return (
        <button onClick={toggleTheme}>Toggle the theme</button>
