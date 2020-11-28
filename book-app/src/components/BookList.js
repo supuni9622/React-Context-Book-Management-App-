@@ -2,6 +2,7 @@ import React, {useContext, useState, useCallback, useEffect} from 'react'
 import {ThemeContext } from '../contexts/ThemeContext';
 import {BookContext} from '../contexts/BookContext';
 import NewBookForm from './NewBookForm';
+import BookDetails from './BookDetails';
 
 const BookList = () => {
 
@@ -26,19 +27,27 @@ const BookList = () => {
     // If we use useEffect without empty array as dependency it will run every time component render or data updated
     // If we add empty array dependency it will run in the initial render
 
-    useEffect(()=> {
-        console.log("UseEffect run ", books)
-    },[])
+    // useEffect(()=> {
+    //     console.log("UseEffect run ", books)
+    // },[])
 
     return (
-        <div className='book-list' style={{background: theme.bg, color: theme.syntax}}>
-            <ul>
-               {books.map((book)=> {
-                   return(<li style={{background: theme.ui}} key={book.id}>{book.name}</li>)
-               })}
-            </ul>
+        <>
+            {books.length ? 
+                <div className='book-list' style={{background: theme.bg, color: theme.syntax}}>
+                    <ul>
+                        {books.map((book)=> {
+                            return(<BookDetails book={book} style={{background: theme.ui}} key={book.id}/>)
+                        })}
+                    </ul>
+                </div>
+                :
+                <div className='empty'>
+                    No books to read at this time.
+                </div>
+            }
            <NewBookForm addBook={addBook}/>
-        </div>
+       </>
     )
 }
 
