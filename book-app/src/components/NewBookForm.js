@@ -3,19 +3,25 @@ import {BookContext} from '../contexts/BookContext';
 
 const NewBookForm = () => {
 
-    const {addBook} = useContext(BookContext)
+    // const {addBook} = useContext(BookContext)
+    // Replace with dispatch from reducers
+    const {dispatch} = useContext(BookContext);
 
-    const [bookValue, setBookValue] = useState('')
-    const [author, setAuthor] = useState('')
+    const [bookValue, setBookValue] = useState('');
+    const [author, setAuthor] = useState('');
 
     const handleSubmit = useCallback(
         (e) => {
             e.preventDefault();
-            addBook(bookValue, author);
+            //addBook(bookValue, author);
+            dispatch({type:'ADD_BOOK', 
+                        book : {
+                            bookValue, author
+                        }});
             setBookValue('');
             setAuthor('');
         },
-        [bookValue,addBook,setBookValue,author]
+        [setBookValue,setAuthor,bookValue,author,dispatch]
     );
 
     return ( 
