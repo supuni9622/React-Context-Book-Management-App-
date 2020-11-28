@@ -6,14 +6,16 @@ const ThemeContextProvider = ({children}) => {
 
     const [isLightTheme, setIsLightTheme] = useState(true)
     const [light, setLight] = useState({
-        syntax : '#555',
+        syntax : '#000',
         ui : '#ddd',
-        bg : '#eee'
+        bg : '#eee',
+        st : '#000'
     })
     const [dark, setDark] = useState({
         syntax : '#ddd',
         ui : '#333',
-        bg : '#555'
+        bg : '#555',
+        st : '#fff'
     })
 
     const toggleTheme = useCallback(() => {

@@ -42,8 +42,8 @@ const BookList = () => {
                     </ul>
                 </div>
                 :
-                <div className='empty'>
-                    No books to read at this time.
+                <div className='empty'  style={{background: theme.bg, color: theme.syntax}}>
+                   <p> No books to read at this time</p>
                 </div>
             }
            <NewBookForm/>

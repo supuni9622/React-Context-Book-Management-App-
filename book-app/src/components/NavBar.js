@@ -24,11 +24,11 @@ const NavBar = () => {
             <div onClick={toggleAuth}>
                 {isAuth ? 'Logged In' : 'Logged Out'}
             </div>
-            <ul>
+            {/* <ul>
                 <li>Home</li>
                 <li>About</li>
                 <li>Contact</li>
-            </ul>
+            </ul> */}
         </nav>
     )
 }
