@@ -6,7 +6,8 @@ import NewBookForm from './NewBookForm';
 const BookList = () => {
 
     const {isLightTheme, dark, light} = useContext(ThemeContext);
-    const {books, setBooks} = useContext(BookContext);
+    const {books, addBook, removeBook} = useContext(BookContext);
+
     const theme = isLightTheme ? light : dark;
 
     // const [books, setBooks] = useState([
@@ -15,15 +16,16 @@ const BookList = () => {
     //     {name :'Harry Potter' , id : 3}
     // ])
 
-    const addBook = useCallback(
-        (bookName) => {
-            setBooks([...books, {name:bookName, id :  Math.random()*100}])
-        },
-        [setBooks,books]
-    );
+    // const addBook = useCallback(
+    //     (bookName) => {
+    //         setBooks([...books, {name:bookName, id :  Math.random()*100}])
+    //     },
+    //     [setBooks,books]
+    // );
     
     // If we use useEffect without empty array as dependency it will run every time component render or data updated
     // If we add empty array dependency it will run in the initial render
+
     useEffect(()=> {
         console.log("UseEffect run ", books)
     },[])

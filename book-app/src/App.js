@@ -11,11 +11,11 @@ const App = () => {
       {/* Pass NavBar and BookList as children properties of ThemeContext Provider*/}
      <AuthContextProvider>
       <ThemeContextProvider>
-        <NavBar/>
         <BookContextProvider>
+          <NavBar/>
           <BookList/>
-        </BookContextProvider>
         <ThemeToggle/>
+        </BookContextProvider>
       </ThemeContextProvider>
      </AuthContextProvider>
     </div>
