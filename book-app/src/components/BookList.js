@@ -1,5 +1,6 @@
 import React, {useContext, useState, useCallback} from 'react'
 import {ThemeContext } from '../contexts/ThemeContext'
+import NewBookForm from './NewBookForm'
 
 const BookList = () => {
 
@@ -28,7 +29,7 @@ const BookList = () => {
                    return(<li key={book.id}>{book.name}</li>)
                })}
             </ul>
-            <button onClick={addBook}> Add A Book</button>
+           <NewBookForm/>
         </div>
     )
 }
