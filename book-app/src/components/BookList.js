@@ -16,7 +16,7 @@ const BookList = () => {
     // Add hardcoded value to the book array
     const addBook = useCallback(
         () => {
-            setBooks([...books, {name:'Hunger Games', id : 4}])
+            setBooks([...books, {name:'Hunger Games', id :  Math.random()*100}])
         },
         [setBooks,books]
     )
