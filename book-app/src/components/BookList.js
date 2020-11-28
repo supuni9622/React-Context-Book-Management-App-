@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useState, useCallback} from 'react'
 import {ThemeContext } from '../contexts/ThemeContext'
 
 const BookList = () => {
@@ -13,6 +13,14 @@ const BookList = () => {
         {name :'Harry Potter' , id : 3}
     ])
 
+    // Add hardcoded value to the book array
+    const addBook = useCallback(
+        () => {
+            setBooks([...books, {name:'Hunger Games', id : 4}])
+        },
+        [setBooks,books]
+    )
+
     return (
         <div className='book-list' style={{background: theme.bg, color: theme.syntax}}>
             <ul>
@@ -20,6 +28,7 @@ const BookList = () => {
                    return(<li key={book.id}>{book.name}</li>)
                })}
             </ul>
+            <button onClick={addBook}> Add A Book</button>
         </div>
     )
 }
