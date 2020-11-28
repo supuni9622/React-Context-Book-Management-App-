@@ -1,16 +1,17 @@
 import React, {useState, useCallback} from 'react'
 
-const NewBookForm = () => {
+const NewBookForm = ({addBook}) => {
 
     const [bookValue, setBookValue] = useState('')
 
     const handleSubmit = useCallback(
         (e) => {
             e.preventDefault();
-            console.log(bookValue)
+            addBook(bookValue);
+            setBookValue('');
         },
-        [bookValue]
-    )
+        [bookValue,addBook,setBookValue]
+    );
 
     return ( 
         <form onSubmit={handleSubmit}>
