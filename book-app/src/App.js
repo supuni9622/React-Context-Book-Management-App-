@@ -1,8 +1,9 @@
-import NavBar from './components/NavBar'
-import BookList from './components/BookList'
+import NavBar from './components/NavBar';
+import BookList from './components/BookList';
 import ThemeContextProvider from './contexts/ThemeContext';
 import AuthContextProvider from './contexts/AuthContext';
-import ThemeToggle from './components/ThemeToggle'
+import BookContextProvider from './contexts/BookContext';
+import ThemeToggle from './components/ThemeToggle';
 
 const App = () => {
   return (
@@ -11,7 +12,9 @@ const App = () => {
      <AuthContextProvider>
       <ThemeContextProvider>
         <NavBar/>
-        <BookList/>
+        <BookContextProvider>
+          <BookList/>
+        </BookContextProvider>
         <ThemeToggle/>
       </ThemeContextProvider>
      </AuthContextProvider>
